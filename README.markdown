@@ -26,7 +26,8 @@ Application Requirements:
 Notes:
 
  * I went with a simple few file application, I didn't want to overcomplicate such a simple task
- * There is no database backend, it is held in memory. Though I could simply add something I have not at this point
+ * Database access is done through Sequel on the Heroku shared postgres database
+ * Prior to completing this I had never used Backbone, Sinatra or Sequel though I was familiar with Ruby, HTML and Javascript
 	
 Issues I ran into along the way:
 
