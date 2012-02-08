@@ -1,5 +1,18 @@
 require 'sinatra'
 require 'json'
+require 'sequel'
+
+
+# db stuff 
+DB = Sequel.connect(ENV['DATABASE_URL'] || 'sqlite:/')
+
+DB.create_table? :todo do
+	primary_key :id
+	String          :text
+	Boolean			:complete
+end 
+
+todos = DB[:todo] 
 
 set :logging, true
 
@@ -11,49 +24,41 @@ helpers do
   end
 end
 
-@@data = []
-@@count = 0
-
 get '/' do
-  File.read(File.join('public', 'index.html'))
+	File.read(File.join('public', 'index.html'))
 end
 
 get '/todos' do
-  content_type :json
-   @@data.to_json
+	content_type :json
+	todos.all.to_json
 end
 
 post '/todos' do
-  content_type :json
-  todo = JSON.parse(request.body.string).merge("id" => @@count += 1 )
-  @@data << todo  
-  todo.to_json
+	content_type :json
+	request.body.rewind
+	t = JSON.parse(request.body.read)
+	id = todos.insert(t)
+	t["id"] = id
+	t.to_json
 end
 
 get '/todos/:id' do  
-  content_type :json
-  id = Integer(params[:id])
-  if @@count<=id
-	  'Sorry, I cannot find that todo'
-  else
-	@@data[id].to_json
-  end
+  content_type :json  
+  todos.filter(:id=>params[:id]).to_json
 end  
 
 put '/todos/:id' do
-  content_type :json
-  todo = JSON.parse(request.body.string)
-  id = Integer(params[:id])
-  index = @@data.index{|x|x["id"]==id}    
-  
-  @@data[index] = todo
-  
+	request.body.rewind
+	t = JSON.parse(request.body.read)
+	todo = todos.filter(:id=>params[:id])
+	todo.update(t)
+	t.to_json
 end  
 
 delete '/todos/:id' do
-  content_type :json
-  
-  id = Integer(params[:id])
-  index = @@data.delete_if{|x|x["id"]==id}    
+	content_type :json
+	todo = todos.filter(:id=>params[:id])
+	todo.delete
+	todo.to_json
 end  
 
