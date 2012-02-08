@@ -1,5 +1,3 @@
-# application.rb
-
 require 'sinatra'
 require 'json'
 
@@ -42,7 +40,6 @@ get '/todos/:id' do
   end
 end  
 
-
 put '/todos/:id' do
   content_type :json
   todo = JSON.parse(request.body.string)
@@ -52,8 +49,6 @@ put '/todos/:id' do
   @@data[index] = todo
   
 end  
-
-
 
 delete '/todos/:id' do
   content_type :json
