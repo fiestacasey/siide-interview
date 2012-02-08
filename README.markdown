@@ -35,11 +35,10 @@ Issues I ran into along the way:
 
 Time:
 <table>
-	<tr><td>research</td><td>~2 hours</td>/tr>
-	<tr><td>writing functional code</td><td>~2 hours</td>/tr>
-	<tr><td>cleaning up/styling</td><td>~1.5 hours</td>/tr>
-	<tr><td>adding sequel/database</td><td>~1.5 hours</td>/tr>
-	<tr><td>deploying</td><td>~0.5 hours</td>/tr>
-	<tr><td colspan=2>----------------------------------</td></tr>
-	<tr><td>total</td><td>~7.5 hours</td>/tr>
+	<tr><td>research</td><td>~2 hours</td></tr>
+	<tr><td>writing functional code</td><td>~2 hours</td></tr>
+	<tr><td>cleaning up/styling</td><td>~1.5 hours</td></tr>
+	<tr><td>adding sequel/database</td><td>~1.5 hours</td></tr>
+	<tr><td>deploying</td><td>~0.5 hours</td></tr>
+	<tr><td><b>total</b></td><td>~7.5 hours</td></tr>
 </table>
