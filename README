@@ -15,7 +15,7 @@ This is basic project running with Backbone.js front end and a Sinatra backend.
  - Use a public Github account as your repository, you can use a pseudonym if you'd like.
  - Keep track of any issues that got in your way, and roughly how long it took.
  
-## Application Requiremenst
+## Application Requirements
  - Create a Todo
  - List todos
  - Finish a todo
