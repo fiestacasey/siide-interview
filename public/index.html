@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <script src="underscore.js"></script>
+    <script src="jquery.js"></script>
+    <script src="backbone.js"></script>
+    <style type='text/css'>
+    body
+    {
+		margin:0px;
+		background-color: #98AFC7;
+	}
+    #page_wrapper
+    {
+		background:snow;
+		padding: 20px;
+		-webkit-border-radius: 0 0 6px 6px;
+		-moz-border-radius: 0 0 6px 6px;
+		border-radius: 0 0 6px 6px;
+		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+		box-shadow: 0 1px 2px rgba(0,0,0,.15);
+		width:1000px;
+		margin: 0 auto;
+	}
+	#page_header
+	{
+		border-bottom: 1px solid #DDD;
+		-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+		-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+		box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+		background-color: #F5F5F5;
+		padding: 20px 20px 0px;
+		margin: -20px -20px 20px;
+	}
+	#page_header h1
+	{
+		margin-top:-10px
+	}
+	.todo .edit
+	{
+		display:none;
+	}
+	.editing .todo .edit
+	{
+		display:block;
+	}
+	.todo .todo-text
+	{
+		display:block;
+		text-decoration:none;
+		color:black;
+	}
+	.editing .todo .todo-text
+	{
+		display:none;
+	}
+	.todo.complete .todo-text
+	{
+		color:gray;
+	}
+	#todo-list li
+	{
+		list-style:none;
+	}
+	#new-todo, .todo-input
+	{
+		width:500px;
+	}
+	#todo-list
+	{
+		padding:0px;
+	}
+	.todo
+	{
+		margin-top:10px;
+	}
+	#content
+	{
+		width:500px;
+		margin:0 auto;
+	}
+    </style>
+  </head>
+
+  <body>
+	<div id="page_wrapper">
+		<div id="page_header">
+		  <h1>Technical Interview For <a href="http://siide.com">siide.com</a></h1>
+		  <p>
+			This is basic project running with Backbone.js front end and a Sinatra backend, created by <a href="http://martigot.com">Casey</a>. Full details on the github page <a href="git">here</a>
+		  </p>
+		</div>
+		<div id="content">
+		  <div class="title">
+			<h1>Todos</h1>
+		  </div>
+		<div id="create-todo">
+		  <input id="new-todo" placeholder="Create a Todo" type="text" />
+		</div>
+		<div id="todos">
+		  <ul id="todo-list"></ul>
+		</div>
+	  </div>
+	</div>
+
+
+    <script type="text/template" id="item-template">
+      <div class="todo <%= complete ? 'complete' : '' %>">
+        <div class="display">
+			<a href="javascript:void(null);" title="<%= complete ? 'Cannot edit completed todo.':'Click to edit.' %>" class="todo-text"></a>          
+			<div class="edit">
+			  <input class="todo-input" type="text" value="" />
+			</div>
+          <small><a href="javascript:void(null);" class="todo-destroy">delete</a></small>
+          <small><a href="javascript:void(null);" class="todo-complete"><%= complete ? 're-open':'complete' %></a></small>
+        </div>
+      </div>
+    </script>
+  </body>
+
+  <script src="application.js"></script>
+</html>
