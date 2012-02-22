@@ -49,3 +49,8 @@ Time:
 	<tr><td>deploying</td><td>~0.5 hours</td></tr>
 	<tr><td><b>total</b></td><td>~7.5 hours</td></tr>
 </table>
+
+
+To start server:
+bundle install
+rackup -p 3000 config.ru 
