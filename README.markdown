@@ -8,6 +8,12 @@ I used:
  * [Sinatra](http://www.sinatrarb.com/)
  
 Requirements:
+source 'http://rubygems.org'
+
+gem 'sinatra'
+gem 'json'
+gem 'sequel'
+gem 'sqlite3'
 
  * Build a single page web app using Sinatra for the backend. 
  * Backbone.js for the front end. 
